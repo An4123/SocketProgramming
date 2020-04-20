@@ -24,7 +24,7 @@ void populateCommands(char* exe[], string _cmd, string _args){
 
 int checkString(string &str){
 // CHECKS IF STRING USER ENTERED IS VALID BY ASSIGNING A INT VALUE
-    string array[] = {"ls","pwd","spwd","catalog","upload","download"};     // array of commands
+    string array[] = {"bye","ls","pwd","spwd","catalog","upload","download"};     // array of commands
     for(int i = 0; i < 6; i++){              // checks the array for matches
         if(str == array[i]){
             if(str == "spwd"){               // translate spwd or catalog to ls or pwd for server
@@ -52,12 +52,31 @@ void forkIt(char* _cmds[]){
 }
 
 
-// void sendData(int socket, char* data, int size){
-//   if(send(socket, data, size, 0) < 0){
-//     perror("Sending Error");
-//     exit(0);
-//   }
+// void sendData(int socket, char* data[], int size){
+//     for (int i = 0; data[i] == NULL ;i++){
+//         // send untill data == NULL.
+//         if(send(socket, data[i], size,0) == -1){
+//             perror("Send Error");
+//             exit(0);
+//         }
+//         cout << "Bytes Sent: " << sizeof(data[i]) << endl;
+//     }
 // }
+//
+// void recieveData(int socket, char* data[], int size){
+//     // Keep recieving packets untill there are no more packets to recieve
+//
+//     do{
+//         char* cmd[size];
+//         if(read(socket, data[i], size,0) == -1){
+//             perror("Recieve Error");
+//             exit(0);
+//         }
+//         cout << "Bytes Recieved: " << sizeof(data[i]) << endl;
+//         i++;
+//     }while{read > 0);
+// }
+
 //
 // void recvData(int socket, char buffer, int maxSize){
 //   if(recv(socket, buffer, maxSize, 0) < 0){

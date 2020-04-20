@@ -88,7 +88,6 @@ int main(void)
             perror("accept");
             continue;
         }
-
         printf("server: got connection from %s\n", inet_ntoa(clientAddress.sin_addr));
 //------------------------------------------------------------------
 
@@ -128,9 +127,8 @@ int main(void)
 
                 // if the connection is there open to recieve messages
                 recieved = recv(clientSocket, buffer, MAXDATASIZE,0);
-                if(recieved > -1){
+                if(recieved > 0){
                     cout << "Recieved: " << recieved << " bytes from " << inet_ntoa(clientAddress.sin_addr) << endl;
-                    forkIt(buffer);
                 }
                 else{
                     perror("Receiving Failed");
@@ -144,6 +142,7 @@ int main(void)
             printf("server: close connection from %s\n", inet_ntoa(clientAddress.sin_addr));
             exit(0);
         }
+        close(clientSocket); // close becsause parent doesnt need this
     }
     return 0;
 }
