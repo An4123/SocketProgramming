@@ -1,4 +1,3 @@
-Student ID: 104598854
 Name: An Vo
 Class: Intro to Computer Networking
 Project: Lab2
